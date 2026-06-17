@@ -107,7 +107,6 @@ router.get('/snapshot/:fileId', async (req, res) => {
 // =========================================================================
 // 3. Додавання нової камери із завантаженням файлу через FormData
 // =========================================================================
-// 3. Додавання нової камери із завантаженням файлу через FormData
 router.post('/', isAuth, isAdmin, upload.single('image'), async (req, res) => {
   try {
     const { name, ip, channelNumber, sn, recorderId } = req.body;
@@ -184,33 +183,7 @@ router.post('/', isAuth, isAdmin, upload.single('image'), async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-// router.post('/', isAuth, isAdmin, upload.single('image'), async (req, res) => {
-//   try {
-//     const { name, ip, channelNumber, sn, recorderId } = req.body;
-    
-//     // Якщо файл успішно завантажено, зберігаємо його згенероване ім'я в базу
-//     const imageUrl = req.file ? req.file.filename : '';
-
-//     const newCamera = new Camera({
-//       name,
-//       ip,
-//       channelNumber: Number(channelNumber),
-//       url: imageUrl, // Ім'я файлу на кшталт "171835623-8321.jpg"
-//       sn,
-//       recorderId
-//     });
-
-//     const savedCamera = await newCamera.save();
-//     res.status(201).json(savedCamera);
-//   } catch (err) {
-//     // Якщо сталася помилка при збереженні в БД, але файл уже встиг завантажитися — видаляємо його
-//     if (req.file) {
-//       const filePath = path.join(__dirname, '../uploads', req.file.filename);
-//       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-//     }
-//     res.status(400).json({ error: err.message });
-//   }
-// });
+  
 // Оновлення текстових даних камери (без зміни фото)
 router.put('/:id', isAuth, isAdmin, async (req, res) => {
   try {

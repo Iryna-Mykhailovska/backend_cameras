@@ -11,7 +11,7 @@ const connectDB = async () => {
 
   try {
     await mongoose.connect(MONGODB_URI);
-    console.log('✅ ИНФРАСТРУКТУРА: Системные базы данных подключены успешно!');
+    console.log('✅ ІНФРАСТРУКТУРА: Системні бази даних підключені успішно!');
   } catch (err) {
     console.error('❌ Ошибка MongoDB:', err.message);
     process.exit(1);

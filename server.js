@@ -21,7 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Мидлвары
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://cctvcontrol-oeft3nf67-professorshas-projects.vercel.app'],
+  origin: ['http://localhost:5173', 'https://cctvcontrol-oeft3nf67-professorshas-projects.vercel.app', 'https://cctvcontrolhub.vercel.app'],
   credentials: true
 }));
 app.use(express.json()); 
